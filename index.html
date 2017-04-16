@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Angular 2 Modules</title>
+      <script src="js/es6-shim.min.js"></script>
+      <script src="js/system-polyfills.js"></script>
+      <script src="js/angular2-polyfills.js"></script>
+      <script src="js/system.js"></script>
+      <script src="js/typescript.js"></script>
+      <script src="js/Rx.js"></script>
+      <script src="js/angular2.dev.js"></script>
+      <script>
+         System.config({
+           transpiler: 'typescript',
+           typescriptOptions: { emitDecoratorMetadata: true },
+           packages: {'app': {defaultExtension: 'ts'}},
+           map: { 'app': './app/Listing' }
+         });
+         System.import('app/environment_main')
+               .then(null, console.error.bind(console));
+      </script>
+   </head>
+   <body>
+      <my-app style="min-height: 400px">Loading...</my-app>
+   </body>
+</html>

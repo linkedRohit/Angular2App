@@ -1,0 +1,79 @@
+<table width="780" border="0" cellspacing="0" cellpadding="0" class="mjTable" id="tabJob">
+          <thead>
+            <tr><th class="w26"></th>
+            <th class="w20"></th>
+            <th class="w20"></th>
+
+<th class="txtLft w435">
+                        <a href="sort?sessionId=d90a0cf58e1e650c0546&amp;id=&amp;sortOn=POST&amp;tab="><strong class="f13">Job Title</strong></a>
+            
+                                                     </th>
+
+
+<th class="w106">
+                        <a href="sort?sessionId=d90a0cf58e1e650c0546&amp;id=&amp;sortOn=POSTBY&amp;tab="><strong class="f13">Posted By</strong></a>
+            
+                                                     </th>
+
+
+            <th class="w112">
+                        <a href="sort?sessionId=d90a0cf58e1e650c0546&amp;id=&amp;sortOn=ADDATE&amp;tab="><strong class="f13">Posted Date</strong></a>
+            
+                                             <img id="id_postdate_img" src="https://static.naukimg.com/rstatic/images/down.gif" alt="" width="9" height="14" align="absmiddle">
+                                            <br><span class="fwNor f11">[Next Refresh Date]</span>
+            </th>
+            <th>Responses</th>
+          </tr></thead>
+                    <tbody>
+                    </tbody>
+                      <tr *ngFor="#job of countries" class="ng-scope">
+                        <td>
+                          <div class="w26 overHid mt2"><input type="checkbox" name="checkbox[]" value="{{job.jobId}}" checkallgroup="1" class="chk"></div>
+                          </td>
+            <td>
+                                                                <div class="pvtJobIcon" title="Private Job"></div>
+                                            </td>
+            <td width="18">
+                            </td>
+            <td class="txtLft" title="{{job.name}}">
+
+                              <a href="{{job.jobSearchUrl}}" class="f13 ng-binding" target="_blank">{{job.name}}</a>
+                <br><span class="f11">{{job.refCode}}</span>
+              
+              <p class="tbGtxtH">
+
+                                                                <a href="https://posting.naukri.com/Job/edit?jobId={{job.jobId}}&amp;IJP=0&amp;ijpType=&amp;subCategoryId=3">Edit</a>                                   &nbsp;|&nbsp;                                <a href="javascript:void(0);" onclick="javascript:document.getElementById('jobId').value='{{job.jobId}}';gbi('subCategoryId').value=3 ;modalwin(500, 'refresh', this);assignValues();checkAutoRefreshOptions();">Refresh</a>
+                                 &nbsp;|&nbsp;                                <a href="javascript:void(0);" onclick="gbi('jobId').value='{{job.jobId}}'; uncheckRadio('single');modalwin(520,'rmSingleJob', this)">Remove</a>
+                                 &nbsp;|&nbsp;                                 <a href="https://posting.naukri.com/Job/../ContactList/index?file={{job.jobId}}" target="_blank">Broadcast</a>
+                                 &nbsp;|&nbsp;                                                                <a href="javascript:void(0);" onclick="gbi('jobId').value='{{job.jobId}}'; var objLl=this.rel; modalwin(400, 'blkRes', this); getBlockDuration('{{job.jobId}}', objLl);" id="lnkResponse"> Block Responses </a>
+                                                                                                &nbsp;|&nbsp;
+                                        <a href="https://posting.naukri.com/Job/saje?jobId={{job.jobId}}" target="_blank">Send Job as Email</a>
+                
+
+                                                                &nbsp;|&nbsp;
+                                                <a href="http://resdex.naukri.com/v2/search/searchAgainstJob?ID={{job.jobId}}&amp;src=jobposting" target="_blank">Search in Resdex</a>
+                
+                                                    &nbsp;|&nbsp;
+                <a href="https://posting.naukri.com/newpaf/pafForm?isPV=&amp;jobId={{job.jobId}}&amp;modify=1&amp;share=1&amp;subCat=3 ">Add/Modify Filter</a>
+                                                                                    
+                                        &nbsp;|&nbsp;
+                        <a href="javascript:void(0)" onclick="convertJobToIJP('https://posting.naukri.com/Job/edit?jobId={{job.jobId}}&amp;subCategoryId=3&amp;pp=1&amp;IJP=1', this);">Post as IJP</a>
+                                                                                            &nbsp;|&nbsp;
+                        <a href="https://posting.naukri.com/Job/recall?jobId={{job.jobId}}&amp;subCategoryId=1&amp;pp=1&amp;IJP=0&amp;ijpType=">Post on Naukri</a>
+                                                                      </p>
+            </td>
+            <td>
+                                  <img src="https://static.naukimg.com/rstatic/images/you.png" alt="" width="27" height="9">
+                                                <br><span title="YASHIKA.GUPTA_Alias">{{job.postedBy}} - {{job.alias}}</span>
+                          </td>
+            <td>{{job.postedDate}}
+              <div class="grytxt" id="nxtRef{{job.jobId}}">                                                </div>
+            </td>
+            <td>
+                                          <a target="blank" href="https://csm.naukri.com/profile/project/inbox?jobId={{job.jobId}}">{{job.numResp}}</a>
+                          
+            </td>
+          </tr>
+                    </table>
+
+      <button type="button" class="btn btn-default" (click)="showNextJobs(1);">Next Page</button>
